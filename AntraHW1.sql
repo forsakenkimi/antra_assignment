@@ -65,7 +65,7 @@ order by p."Name";
 --Question 13
 Select p.Name
 from Production.Product p
-where p."Name" like 'SPO%' and p."Name" not like 'SPOK%'
+where p."Name" like 'SPO[^K]%'
 order by p."Name";
 
 /* select t."Name"
