@@ -11,12 +11,12 @@ from Production.Product p
 where p.listPrice != 0;
 
 --Question 3
-select p.ProductID, p.Name, p.Color, p.ListPrice
+select p.ProductID, p."Name", p.Color, p.ListPrice
 from Production.Product p 
 where p.Color is null;
 
 --Question 4
-select p.ProductID, p.Name, p.Color, p.ListPrice
+select p.ProductID, p."Name", p.Color, p.ListPrice
 from Production.Product p 
 where p.Color is not null;
 
