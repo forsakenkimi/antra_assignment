@@ -6,7 +6,7 @@ select p.ProductID, p."Name", p.Color, p.ListPrice
 from Production.Product p;
 
 --Question 2
-select p.ProductID, p.Name, p.Color, p.ListPrice
+select p.ProductID, p."Name", p.Color, p.ListPrice
 from Production.Product p 
 where p.listPrice != 0;
 
@@ -21,12 +21,12 @@ from Production.Product p
 where p.Color is not null;
 
 --Question 5
-select p.ProductID, p.Name, p.Color, p.ListPrice
+select p.ProductID, p."Name", p.Color, p.ListPrice
 from Production.Product p 
 where p.Color is not null and p.ListPrice > 0;
 
 --Question 6
-select p.[Name] + ' ' + p.Color
+select p."Name" + ' ' + p.Color
 from Production.Product p
 where color is not null;
 
@@ -37,7 +37,7 @@ where p.Color in ('Black', 'Silver');
 /* select TOP 6 ... */
 
 -- Question 8
-select p.ProductID, p."Name", p.Color
+select p.ProductID, p."Name"
 from Production.Product p
 where ProductID between 400 and 500;
 
