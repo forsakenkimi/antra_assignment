@@ -25,10 +25,10 @@ from Production.Product p
 group by p.ProductSubcategoryID;
 
 --Question 4
-select p.ProductSubcategoryID, count(p.ProductID) as CountedProducts
+select count(p.ProductID) as CountedProducts
 from Production.Product p
 where p.ProductSubcategoryID is null
-group by p.ProductSubcategoryID;
+
 
 --Question 5
 select sum(p1.Quantity) SumQuantity
@@ -135,6 +135,9 @@ group by o.CustomerID) t
 on c.CustomerID = t.CustomerID
 
 --Question 21
+/* not sure about the meaning of "count of products" in the question
+is it quantity of products or number of types of products*/
+
 select c.CompanyName, count(p.ProductID) TheCount
 from dbo.Orders o join Dbo.Customers c
 on o.CustomerID = c.CustomerID
@@ -173,14 +176,13 @@ on e1.title = e2.title
 where e1.EmployeeID != e2.EmployeeID
 
 --Question 26
-select e3.FirstName + ' ' + e3.LastName Manager
-from Employees e3 join 
+select e2.FirstName + ' ' + e2.LastName Manager
+from Employees e2 join 
 (Select e1.ReportsTo
-from Employees e1 join Employees e2
-on e1.ReportsTo = e2.EmployeeID
+from Employees e1 
 group by e1.ReportsTo
 having count(e1.ReportsTo) > 2) t
-on e3.EmployeeID = t.ReportsTo
+on e2.EmployeeID = t.ReportsTo
 
 --Question 27
 select City, CompanyName, ContactName, 'Customer' as Type
@@ -188,3 +190,10 @@ from dbo.Customers
 Union
 select City, CompanyName, ContactName, 'Supplier' as Type
 from dbo.Suppliers
+
+/* 
+select c.City, c.CompanyName, c.ContactName, 'Customer' as Type, s.City, s.CompanyName, s.ContactName, 'Supplier' as Type
+from dbo.Customers c full join dbo.Suppliers s
+on c.City = s.City
+*/
+
