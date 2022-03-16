@@ -140,7 +140,7 @@ while (flag)
     if (guessedNumber == correctNumber)
     {
         Console.WriteLine("congratulation");
-        flag = true;
+        flag = false;
     }
     else if (guessedNumber < 1 || guessedNumber > 3)
     {
